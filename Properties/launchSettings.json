@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "nscccoursemap_NeoLee_0435748": {
+    "NsccCourseMap_Neo": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
