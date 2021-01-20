@@ -29,6 +29,30 @@ namespace NsccCourseMap.Data
       modelBuilder.Entity<Semester>()
         .HasAlternateKey(s => s.Name)
         .HasName("AlternateKey_Semester_Name");
+
+      // RECONCILE THE MANY TO MANY RECURSIVE (VERSION 1)
+      modelBuilder.Entity<Course>()
+          .HasMany(c => c.Prerequisites)
+          .WithOne(cpr => cpr.Course)
+          .HasForeignKey(cpr => cpr.CourseId);
+      modelBuilder.Entity<Course>()
+          .HasMany(c => c.IsPrerequisiteFor)
+          .WithOne(cpr => cpr.Prerequisite)
+          .HasForeignKey(cpr => cpr.PrerequisiteId);
+
+      // RECONCILE THE MANY TO MANY RECURSIVE (VERSION 2)
+      // modelBuilder.Entity<Course>()
+      // .HasMany(c => c.Prerequisites)
+      // .WithMany(c => c.IsPrerequisiteFor);
+
+      // TURN OFF CASCADE DELETE FOR ALL RELATIONSHIPS
+      foreach (var entity in modelBuilder.Model.GetEntityTypes())
+      {
+        foreach (var fk in entity.GetForeignKeys())
+        {
+          fk.DeleteBehavior = DeleteBehavior.NoAction;
+        }
+      }
     }
 
     public DbSet<AcademicYear> AcademicYears { get; set; }

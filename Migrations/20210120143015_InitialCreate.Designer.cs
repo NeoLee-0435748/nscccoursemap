@@ -10,7 +10,7 @@ using NsccCourseMap.Data;
 namespace NsccCourseMap_Neo.Migrations
 {
     [DbContext(typeof(NsccCourseMapContext))]
-    [Migration("20210120001957_InitialCreate")]
+    [Migration("20210120143015_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -95,19 +95,19 @@ namespace NsccCourseMap_Neo.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("CourseId")
+                    b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DiplomaProgramYearSectionId")
+                    b.Property<int>("DiplomaProgramYearSectionId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("InstructorId")
+                    b.Property<int>("InstructorId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsDirectedElective")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("SemesterId")
+                    b.Property<int>("SemesterId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -130,10 +130,10 @@ namespace NsccCourseMap_Neo.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int?>("CourseId")
+                    b.Property<int>("CourseId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PrerequisiteId")
+                    b.Property<int>("PrerequisiteId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -272,13 +272,13 @@ namespace NsccCourseMap_Neo.Migrations
                     b.HasOne("NsccCourseMap.Models.DiplomaProgramYearSection", "DiplomaProgramYearSection")
                         .WithMany("AdvisingAssignments")
                         .HasForeignKey("DiplomaProgramYearSectionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("NsccCourseMap.Models.Instructor", "Instructor")
                         .WithMany("AdvisingAssignments")
                         .HasForeignKey("InstructorId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("DiplomaProgramYearSection");
@@ -290,19 +290,27 @@ namespace NsccCourseMap_Neo.Migrations
                 {
                     b.HasOne("NsccCourseMap.Models.Course", "Course")
                         .WithMany("CourseOfferings")
-                        .HasForeignKey("CourseId");
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("NsccCourseMap.Models.DiplomaProgramYearSection", "DiplomaProgramYearSection")
                         .WithMany("CourseOfferings")
-                        .HasForeignKey("DiplomaProgramYearSectionId");
+                        .HasForeignKey("DiplomaProgramYearSectionId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("NsccCourseMap.Models.Instructor", "Instructor")
                         .WithMany("CourseOfferings")
-                        .HasForeignKey("InstructorId");
+                        .HasForeignKey("InstructorId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("NsccCourseMap.Models.Semester", "Semester")
                         .WithMany("CourseOfferings")
-                        .HasForeignKey("SemesterId");
+                        .HasForeignKey("SemesterId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.Navigation("Course");
 
@@ -317,11 +325,15 @@ namespace NsccCourseMap_Neo.Migrations
                 {
                     b.HasOne("NsccCourseMap.Models.Course", "Course")
                         .WithMany("Prerequisites")
-                        .HasForeignKey("CourseId");
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.HasOne("NsccCourseMap.Models.Course", "Prerequisite")
-                        .WithMany("IsPrerequiseteFor")
-                        .HasForeignKey("PrerequisiteId");
+                        .WithMany("IsPrerequisiteFor")
+                        .HasForeignKey("PrerequisiteId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.Navigation("Course");
 
@@ -333,7 +345,7 @@ namespace NsccCourseMap_Neo.Migrations
                     b.HasOne("NsccCourseMap.Models.DiplomaProgram", "DiplomaProgram")
                         .WithMany("DiplomaProgramYears")
                         .HasForeignKey("DiplomaProgramId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("DiplomaProgram");
@@ -344,13 +356,13 @@ namespace NsccCourseMap_Neo.Migrations
                     b.HasOne("NsccCourseMap.Models.AcademicYear", "AcademicYear")
                         .WithMany("DiplomaProgramYearSections")
                         .HasForeignKey("AcademicYearId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("NsccCourseMap.Models.DiplomaProgramYear", "DiplomaProgramYear")
                         .WithMany("DiplomaProgramYearSections")
                         .HasForeignKey("DiplomaProgramYearId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("AcademicYear");
@@ -363,7 +375,7 @@ namespace NsccCourseMap_Neo.Migrations
                     b.HasOne("NsccCourseMap.Models.AcademicYear", "AcademicYear")
                         .WithMany("Semesters")
                         .HasForeignKey("AcademicYearId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("AcademicYear");
@@ -380,7 +392,7 @@ namespace NsccCourseMap_Neo.Migrations
                 {
                     b.Navigation("CourseOfferings");
 
-                    b.Navigation("IsPrerequiseteFor");
+                    b.Navigation("IsPrerequisiteFor");
 
                     b.Navigation("Prerequisites");
                 });

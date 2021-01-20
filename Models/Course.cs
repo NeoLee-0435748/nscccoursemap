@@ -21,7 +21,7 @@ namespace NsccCourseMap.Models
     [InverseProperty("Course")]
     public virtual ICollection<CoursePrerequisite> Prerequisites { get; set; }
     [InverseProperty("Prerequisite")]
-    public virtual ICollection<CoursePrerequisite> IsPrerequiseteFor { get; set; }
+    public virtual ICollection<CoursePrerequisite> IsPrerequisiteFor { get; set; }
     public ICollection<CourseOffering> CourseOfferings { get; set; }
   }
 }

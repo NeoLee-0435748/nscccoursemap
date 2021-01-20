@@ -10,8 +10,8 @@ namespace NsccCourseMap.Models
   {
     //Scalar properties
     public int Id { get; set; }
-    public int? CourseId { get; set; }
-    public int? PrerequisiteId { get; set; }
+    public int CourseId { get; set; }
+    public int PrerequisiteId { get; set; }
 
     //Navigation properties
     [ForeignKey("CourseId")]

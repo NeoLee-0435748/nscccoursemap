@@ -83,8 +83,7 @@ namespace NsccCourseMap_Neo.Migrations
                         name: "FK_Semesters_AcademicYears_AcademicYearId",
                         column: x => x.AcademicYearId,
                         principalTable: "AcademicYears",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -93,8 +92,8 @@ namespace NsccCourseMap_Neo.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CourseId = table.Column<int>(type: "int", nullable: true),
-                    PrerequisiteId = table.Column<int>(type: "int", nullable: true)
+                    CourseId = table.Column<int>(type: "int", nullable: false),
+                    PrerequisiteId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -103,14 +102,12 @@ namespace NsccCourseMap_Neo.Migrations
                         name: "FK_CoursePrerequisites_Courses_CourseId",
                         column: x => x.CourseId,
                         principalTable: "Courses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_CoursePrerequisites_Courses_PrerequisiteId",
                         column: x => x.PrerequisiteId,
                         principalTable: "Courses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -129,8 +126,7 @@ namespace NsccCourseMap_Neo.Migrations
                         name: "FK_DiplomaProgramYears_DiplomaPrograms_DiplomaProgramId",
                         column: x => x.DiplomaProgramId,
                         principalTable: "DiplomaPrograms",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -150,14 +146,12 @@ namespace NsccCourseMap_Neo.Migrations
                         name: "FK_DiplomaProgramYearSections_AcademicYears_AcademicYearId",
                         column: x => x.AcademicYearId,
                         principalTable: "AcademicYears",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_DiplomaProgramYearSections_DiplomaProgramYears_DiplomaProgramYearId",
                         column: x => x.DiplomaProgramYearId,
                         principalTable: "DiplomaProgramYears",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -176,14 +170,12 @@ namespace NsccCourseMap_Neo.Migrations
                         name: "FK_AdvisingAssignments_DiplomaProgramYearSections_DiplomaProgramYearSectionId",
                         column: x => x.DiplomaProgramYearSectionId,
                         principalTable: "DiplomaProgramYearSections",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_AdvisingAssignments_Instructors_InstructorId",
                         column: x => x.InstructorId,
                         principalTable: "Instructors",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -192,10 +184,10 @@ namespace NsccCourseMap_Neo.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CourseId = table.Column<int>(type: "int", nullable: true),
-                    InstructorId = table.Column<int>(type: "int", nullable: true),
-                    DiplomaProgramYearSectionId = table.Column<int>(type: "int", nullable: true),
-                    SemesterId = table.Column<int>(type: "int", nullable: true),
+                    CourseId = table.Column<int>(type: "int", nullable: false),
+                    InstructorId = table.Column<int>(type: "int", nullable: false),
+                    DiplomaProgramYearSectionId = table.Column<int>(type: "int", nullable: false),
+                    SemesterId = table.Column<int>(type: "int", nullable: false),
                     IsDirectedElective = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -205,26 +197,22 @@ namespace NsccCourseMap_Neo.Migrations
                         name: "FK_CourseOfferings_Courses_CourseId",
                         column: x => x.CourseId,
                         principalTable: "Courses",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_CourseOfferings_DiplomaProgramYearSections_DiplomaProgramYearSectionId",
                         column: x => x.DiplomaProgramYearSectionId,
                         principalTable: "DiplomaProgramYearSections",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_CourseOfferings_Instructors_InstructorId",
                         column: x => x.InstructorId,
                         principalTable: "Instructors",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_CourseOfferings_Semesters_SemesterId",
                         column: x => x.SemesterId,
                         principalTable: "Semesters",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(

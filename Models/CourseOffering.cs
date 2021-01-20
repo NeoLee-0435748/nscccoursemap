@@ -10,10 +10,10 @@ namespace NsccCourseMap.Models
   {
     //Scalar properties
     public int Id { get; set; }
-    public int? CourseId { get; set; }
-    public int? InstructorId { get; set; }
-    public int? DiplomaProgramYearSectionId { get; set; }
-    public int? SemesterId { get; set; }
+    public int CourseId { get; set; }
+    public int InstructorId { get; set; }
+    public int DiplomaProgramYearSectionId { get; set; }
+    public int SemesterId { get; set; }
     [Required]
     [DefaultValue(false)]
     public bool IsDirectedElective { get; set; }
