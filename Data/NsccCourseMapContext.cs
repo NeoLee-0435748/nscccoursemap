@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using NsccCourseMap.Models;
 
 namespace NsccCourseMap.Data
 {
@@ -10,14 +11,35 @@ namespace NsccCourseMap.Data
     {
     }
 
-    public DbSet<NsccCourseMap.Models.AcademicYears> AcademicYears { get; set; }
-    public DbSet<NsccCourseMap.Models.AdvisingAssignments> AdvisingAssignments { get; set; }
-    public DbSet<NsccCourseMap.Models.CourseOfferings> CourseOfferings { get; set; }
-    public DbSet<NsccCourseMap.Models.CoursePrerequisites> CoursePrerequisites { get; set; }
-    public DbSet<NsccCourseMap.Models.Courses> Courses { get; set; }
-    public DbSet<NsccCourseMap.Models.DiplomaPrograms> DiplomaPrograms { get; set; }
-    public DbSet<NsccCourseMap.Models.DiplomaProgramYearSections> DiplomaProgramYearSections { get; set; }
-    public DbSet<NsccCourseMap.Models.Instructors> Instructors { get; set; }
-    public DbSet<NsccCourseMap.Models.Semesters> Semesters { get; set; }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+      //define unique columns
+      modelBuilder.Entity<AcademicYear>()
+        .HasAlternateKey(ay => ay.Title)
+        .HasName("AlternateKey_AcademicYear_Title");
+
+      modelBuilder.Entity<Course>()
+        .HasAlternateKey(c => c.CourseCode)
+        .HasName("AlternateKey_Course_CourseCode");
+
+      modelBuilder.Entity<DiplomaProgram>()
+        .HasAlternateKey(dp => dp.Title)
+        .HasName("AlternateKey_DiplomaProgram_Title");
+
+      modelBuilder.Entity<Semester>()
+        .HasAlternateKey(s => s.Name)
+        .HasName("AlternateKey_Semester_Name");
+    }
+
+    public DbSet<AcademicYear> AcademicYears { get; set; }
+    public DbSet<AdvisingAssignment> AdvisingAssignments { get; set; }
+    public DbSet<CourseOffering> CourseOfferings { get; set; }
+    public DbSet<CoursePrerequisite> CoursePrerequisites { get; set; }
+    public DbSet<Course> Courses { get; set; }
+    public DbSet<DiplomaProgram> DiplomaPrograms { get; set; }
+    public DbSet<DiplomaProgramYear> DiplomaProgramYears { get; set; }
+    public DbSet<DiplomaProgramYearSection> DiplomaProgramYearSections { get; set; }
+    public DbSet<Instructor> Instructors { get; set; }
+    public DbSet<Semester> Semesters { get; set; }
   }
 }

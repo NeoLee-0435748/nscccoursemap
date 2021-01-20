@@ -1,27 +1,31 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NsccCourseMap.Models
 {
-  //Scalar properties
-  public class Semesters
+  [Table("Semesters")]
+  public class Semester
   {
-    public int ID { get; set; }
+    //Scalar properties
+    public int Id { get; set; }
     [StringLength(50, MinimumLength = 3)]
     [Required]
     public string Name { get; set; }
-    [DataType(DataType.Date)]
+    [Column(TypeName = "Date")]
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     [Required]
     public DateTime StartDate { get; set; }
-    [DataType(DataType.Date)]
+    [Column(TypeName = "Date")]
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     [Required]
     public DateTime EndDate { get; set; }
+    [Required]
     public int AcademicYearId { get; set; }
 
     //Navigation properties
-    public AcademicYears AcademicYear { get; set; }
-    public CourseOfferings CourseOfferings { get; set; }
+    public AcademicYear AcademicYear { get; set; }
+    public ICollection<CourseOffering> CourseOfferings { get; set; }
   }
 }
