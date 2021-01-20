@@ -18,9 +18,7 @@ namespace NsccCourseMap.Models
     public string Title { get; set; }
 
     //Navigation properties
-    [InverseProperty("Course")]
     public virtual ICollection<CoursePrerequisite> Prerequisites { get; set; }
-    [InverseProperty("Prerequisite")]
     public virtual ICollection<CoursePrerequisite> IsPrerequisiteFor { get; set; }
     public ICollection<CourseOffering> CourseOfferings { get; set; }
   }

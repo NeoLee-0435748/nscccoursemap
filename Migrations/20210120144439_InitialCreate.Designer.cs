@@ -10,7 +10,7 @@ using NsccCourseMap.Data;
 namespace NsccCourseMap_Neo.Migrations
 {
     [DbContext(typeof(NsccCourseMapContext))]
-    [Migration("20210120143015_InitialCreate")]
+    [Migration("20210120144439_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
