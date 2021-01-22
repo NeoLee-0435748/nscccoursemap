@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 namespace NsccCourseMap.Models
 {
   [Table("CoursePrerequisites")]
-  [Index(nameof(CourseId), nameof(PrerequisiteId))]
   public class CoursePrerequisite
   {
     //Scalar properties

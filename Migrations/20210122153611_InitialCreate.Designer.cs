@@ -10,7 +10,7 @@ using NsccCourseMap.Data;
 namespace NsccCourseMap_Neo.Migrations
 {
     [DbContext(typeof(NsccCourseMapContext))]
-    [Migration("20210122150341_InitialCreate")]
+    [Migration("20210122153611_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,7 +58,8 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.HasIndex("DiplomaProgramYearSectionId");
 
-                    b.HasIndex("InstructorId", "DiplomaProgramYearSectionId");
+                    b.HasIndex("InstructorId", "DiplomaProgramYearSectionId")
+                        .IsUnique();
 
                     b.ToTable("AdvisingAssignments");
                 });
@@ -118,7 +119,8 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.HasIndex("SemesterId");
 
-                    b.HasIndex("CourseId", "InstructorId", "DiplomaProgramYearSectionId", "SemesterId");
+                    b.HasIndex("CourseId", "InstructorId", "DiplomaProgramYearSectionId", "SemesterId")
+                        .IsUnique();
 
                     b.ToTable("CourseOfferings");
                 });
@@ -140,7 +142,8 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.HasIndex("PrerequisiteId");
 
-                    b.HasIndex("CourseId", "PrerequisiteId");
+                    b.HasIndex("CourseId", "PrerequisiteId")
+                        .IsUnique();
 
                     b.ToTable("CoursePrerequisites");
                 });
@@ -183,7 +186,8 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.HasIndex("DiplomaProgramId");
 
-                    b.HasIndex("Title", "DiplomaProgramId");
+                    b.HasIndex("Title", "DiplomaProgramId")
+                        .IsUnique();
 
                     b.ToTable("DiplomaProgramYears");
                 });
@@ -212,7 +216,8 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.HasIndex("DiplomaProgramYearId");
 
-                    b.HasIndex("Title", "DiplomaProgramYearId", "AcademicYearId");
+                    b.HasIndex("Title", "DiplomaProgramYearId", "AcademicYearId")
+                        .IsUnique();
 
                     b.ToTable("DiplomaProgramYearSections");
                 });

@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 namespace NsccCourseMap.Models
 {
   [Table("DiplomaProgramYearSections")]
-  [Index(nameof(Title), nameof(DiplomaProgramYearId), nameof(AcademicYearId))]
   public class DiplomaProgramYearSection
   {
     //Scalar properties

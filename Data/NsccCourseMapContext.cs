@@ -30,6 +30,27 @@ namespace NsccCourseMap.Data
         .HasAlternateKey(s => s.Name)
         .HasName("AlternateKey_Semester_Name");
 
+      //define combine unique columns
+      modelBuilder.Entity<DiplomaProgramYear>()
+        .HasIndex(dpy => new { dpy.Title, dpy.DiplomaProgramId })
+        .IsUnique(true);
+
+      modelBuilder.Entity<DiplomaProgramYearSection>()
+        .HasIndex(dpys => new { dpys.Title, dpys.DiplomaProgramYearId, dpys.AcademicYearId })
+        .IsUnique(true);
+
+      modelBuilder.Entity<AdvisingAssignment>()
+        .HasIndex(aa => new { aa.InstructorId, aa.DiplomaProgramYearSectionId })
+        .IsUnique(true);
+
+      modelBuilder.Entity<CourseOffering>()
+        .HasIndex(co => new { co.CourseId, co.InstructorId, co.DiplomaProgramYearSectionId, co.SemesterId })
+        .IsUnique(true);
+
+      modelBuilder.Entity<CoursePrerequisite>()
+        .HasIndex(cp => new { cp.CourseId, cp.PrerequisiteId })
+        .IsUnique(true);
+
       // RECONCILE THE MANY TO MANY RECURSIVE (VERSION 1)
       modelBuilder.Entity<Course>()
           .HasMany(c => c.Prerequisites)

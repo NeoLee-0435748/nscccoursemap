@@ -223,12 +223,14 @@ namespace NsccCourseMap_Neo.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_AdvisingAssignments_InstructorId_DiplomaProgramYearSectionId",
                 table: "AdvisingAssignments",
-                columns: new[] { "InstructorId", "DiplomaProgramYearSectionId" });
+                columns: new[] { "InstructorId", "DiplomaProgramYearSectionId" },
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_CourseOfferings_CourseId_InstructorId_DiplomaProgramYearSectionId_SemesterId",
                 table: "CourseOfferings",
-                columns: new[] { "CourseId", "InstructorId", "DiplomaProgramYearSectionId", "SemesterId" });
+                columns: new[] { "CourseId", "InstructorId", "DiplomaProgramYearSectionId", "SemesterId" },
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_CourseOfferings_DiplomaProgramYearSectionId",
@@ -248,7 +250,8 @@ namespace NsccCourseMap_Neo.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_CoursePrerequisites_CourseId_PrerequisiteId",
                 table: "CoursePrerequisites",
-                columns: new[] { "CourseId", "PrerequisiteId" });
+                columns: new[] { "CourseId", "PrerequisiteId" },
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_CoursePrerequisites_PrerequisiteId",
@@ -263,7 +266,8 @@ namespace NsccCourseMap_Neo.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_DiplomaProgramYears_Title_DiplomaProgramId",
                 table: "DiplomaProgramYears",
-                columns: new[] { "Title", "DiplomaProgramId" });
+                columns: new[] { "Title", "DiplomaProgramId" },
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_DiplomaProgramYearSections_AcademicYearId",
@@ -278,7 +282,8 @@ namespace NsccCourseMap_Neo.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_DiplomaProgramYearSections_Title_DiplomaProgramYearId_AcademicYearId",
                 table: "DiplomaProgramYearSections",
-                columns: new[] { "Title", "DiplomaProgramYearId", "AcademicYearId" });
+                columns: new[] { "Title", "DiplomaProgramYearId", "AcademicYearId" },
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Semesters_AcademicYearId",
