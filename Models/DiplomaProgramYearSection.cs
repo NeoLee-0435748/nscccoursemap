@@ -12,7 +12,7 @@ namespace NsccCourseMap.Models
     //Scalar properties
     public int Id { get; set; }
     [RegularExpression(@"^Section \d{1}$")]
-    [StringLength(100, MinimumLength = 1)]
+    // [StringLength(9, MinimumLength = 9)]
     [Required(ErrorMessage = "Please enter title")]
     public string Title { get; set; }
     [Required]

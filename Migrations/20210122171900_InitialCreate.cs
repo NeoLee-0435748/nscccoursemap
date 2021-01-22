@@ -135,7 +135,7 @@ namespace NsccCourseMap_Neo.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     DiplomaProgramYearId = table.Column<int>(type: "int", nullable: false),
                     AcademicYearId = table.Column<int>(type: "int", nullable: false)
                 },

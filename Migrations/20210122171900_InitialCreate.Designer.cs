@@ -10,7 +10,7 @@ using NsccCourseMap.Data;
 namespace NsccCourseMap_Neo.Migrations
 {
     [DbContext(typeof(NsccCourseMapContext))]
-    [Migration("20210122153611_InitialCreate")]
+    [Migration("20210122171900_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -207,8 +207,7 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
