@@ -2,16 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace NsccCourseMap.Models
 {
   [Table("DiplomaProgramYearSections")]
+  [Index(nameof(Title), nameof(DiplomaProgramYearId), nameof(AcademicYearId))]
   public class DiplomaProgramYearSection
   {
     //Scalar properties
     public int Id { get; set; }
+    [RegularExpression(@"^Section \d{1}$")]
     [StringLength(100, MinimumLength = 1)]
-    [Required]
+    [Required(ErrorMessage = "Please enter title")]
     public string Title { get; set; }
     [Required]
     public int DiplomaProgramYearId { get; set; }

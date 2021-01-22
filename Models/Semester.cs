@@ -11,15 +11,16 @@ namespace NsccCourseMap.Models
     //Scalar properties
     public int Id { get; set; }
     [StringLength(50, MinimumLength = 3)]
-    [Required]
+    [Required(ErrorMessage = "Please enter name")]
     public string Name { get; set; }
     [Column(TypeName = "Date")]
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-    [Required]
+    [Required(ErrorMessage = "Please enter start date")]
     public DateTime StartDate { get; set; }
+    [CompareTwoDates("StartDate")]
     [Column(TypeName = "Date")]
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-    [Required]
+    [Required(ErrorMessage = "Please enter end date")]
     public DateTime EndDate { get; set; }
     [Required]
     public int AcademicYearId { get; set; }

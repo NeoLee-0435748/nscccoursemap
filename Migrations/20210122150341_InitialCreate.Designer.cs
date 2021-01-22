@@ -10,7 +10,7 @@ using NsccCourseMap.Data;
 namespace NsccCourseMap_Neo.Migrations
 {
     [DbContext(typeof(NsccCourseMapContext))]
-    [Migration("20210120144439_InitialCreate")]
+    [Migration("20210122150341_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,8 +30,8 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
@@ -58,7 +58,7 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.HasIndex("DiplomaProgramYearSectionId");
 
-                    b.HasIndex("InstructorId");
+                    b.HasIndex("InstructorId", "DiplomaProgramYearSectionId");
 
                     b.ToTable("AdvisingAssignments");
                 });
@@ -72,8 +72,8 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.Property<string>("CourseCode")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(9)
+                        .HasColumnType("nvarchar(9)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -112,13 +112,13 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseId");
-
                     b.HasIndex("DiplomaProgramYearSectionId");
 
                     b.HasIndex("InstructorId");
 
                     b.HasIndex("SemesterId");
+
+                    b.HasIndex("CourseId", "InstructorId", "DiplomaProgramYearSectionId", "SemesterId");
 
                     b.ToTable("CourseOfferings");
                 });
@@ -138,9 +138,9 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseId");
-
                     b.HasIndex("PrerequisiteId");
+
+                    b.HasIndex("CourseId", "PrerequisiteId");
 
                     b.ToTable("CoursePrerequisites");
                 });
@@ -154,8 +154,7 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
@@ -184,6 +183,8 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.HasIndex("DiplomaProgramId");
 
+                    b.HasIndex("Title", "DiplomaProgramId");
+
                     b.ToTable("DiplomaProgramYears");
                 });
 
@@ -211,6 +212,8 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.HasIndex("DiplomaProgramYearId");
 
+                    b.HasIndex("Title", "DiplomaProgramYearId", "AcademicYearId");
+
                     b.ToTable("DiplomaProgramYearSections");
                 });
 
@@ -223,13 +226,11 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

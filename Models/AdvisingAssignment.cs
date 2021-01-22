@@ -1,10 +1,12 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace NsccCourseMap.Models
 {
   [Table("AdvisingAssignments")]
+  [Index(nameof(InstructorId), nameof(DiplomaProgramYearSectionId))]
   public class AdvisingAssignment
   {
     //Scalar properties

@@ -13,7 +13,7 @@ namespace NsccCourseMap_Neo.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    Title = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,7 +27,7 @@ namespace NsccCourseMap_Neo.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CourseCode = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    CourseCode = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
                     Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
@@ -42,7 +42,7 @@ namespace NsccCourseMap_Neo.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    Title = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -56,8 +56,8 @@ namespace NsccCourseMap_Neo.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -221,14 +221,14 @@ namespace NsccCourseMap_Neo.Migrations
                 column: "DiplomaProgramYearSectionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AdvisingAssignments_InstructorId",
+                name: "IX_AdvisingAssignments_InstructorId_DiplomaProgramYearSectionId",
                 table: "AdvisingAssignments",
-                column: "InstructorId");
+                columns: new[] { "InstructorId", "DiplomaProgramYearSectionId" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CourseOfferings_CourseId",
+                name: "IX_CourseOfferings_CourseId_InstructorId_DiplomaProgramYearSectionId_SemesterId",
                 table: "CourseOfferings",
-                column: "CourseId");
+                columns: new[] { "CourseId", "InstructorId", "DiplomaProgramYearSectionId", "SemesterId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_CourseOfferings_DiplomaProgramYearSectionId",
@@ -246,9 +246,9 @@ namespace NsccCourseMap_Neo.Migrations
                 column: "SemesterId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CoursePrerequisites_CourseId",
+                name: "IX_CoursePrerequisites_CourseId_PrerequisiteId",
                 table: "CoursePrerequisites",
-                column: "CourseId");
+                columns: new[] { "CourseId", "PrerequisiteId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_CoursePrerequisites_PrerequisiteId",
@@ -261,6 +261,11 @@ namespace NsccCourseMap_Neo.Migrations
                 column: "DiplomaProgramId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DiplomaProgramYears_Title_DiplomaProgramId",
+                table: "DiplomaProgramYears",
+                columns: new[] { "Title", "DiplomaProgramId" });
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DiplomaProgramYearSections_AcademicYearId",
                 table: "DiplomaProgramYearSections",
                 column: "AcademicYearId");
@@ -269,6 +274,11 @@ namespace NsccCourseMap_Neo.Migrations
                 name: "IX_DiplomaProgramYearSections_DiplomaProgramYearId",
                 table: "DiplomaProgramYearSections",
                 column: "DiplomaProgramYearId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DiplomaProgramYearSections_Title_DiplomaProgramYearId_AcademicYearId",
+                table: "DiplomaProgramYearSections",
+                columns: new[] { "Title", "DiplomaProgramYearId", "AcademicYearId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Semesters_AcademicYearId",

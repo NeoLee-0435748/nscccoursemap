@@ -10,8 +10,8 @@ namespace NsccCourseMap.Models
   {
     //Scalar properties
     public int Id { get; set; }
-    [StringLength(100, MinimumLength = 1)]
-    [Required]
+    [MinLength(10, ErrorMessage = "Title cannot be less than 10")]
+    [Required(ErrorMessage = "Please enter title")]
     public string Title { get; set; }
 
     //Navigation properties

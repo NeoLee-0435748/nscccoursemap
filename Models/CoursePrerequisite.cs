@@ -1,16 +1,20 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 // Ref: https://stackoverflow.com/questions/54196199/entity-framework-core-multiple-one-to-many-relationships-between-two-entities
 namespace NsccCourseMap.Models
 {
   [Table("CoursePrerequisites")]
+  [Index(nameof(CourseId), nameof(PrerequisiteId))]
   public class CoursePrerequisite
   {
     //Scalar properties
     public int Id { get; set; }
+    [Required]
     public int CourseId { get; set; }
+    [Required]
     public int PrerequisiteId { get; set; }
 
     //Navigation properties
