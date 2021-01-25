@@ -12,8 +12,10 @@ namespace NsccCourseMap.Models
     //Scalar properties
     public int Id { get; set; }
     [Required]
+    [Display(Name = "Course Code")]
     public int CourseId { get; set; }
     [Required]
+    [Display(Name = "Prerequisite Course Code")]
     public int PrerequisiteId { get; set; }
 
     //Navigation properties

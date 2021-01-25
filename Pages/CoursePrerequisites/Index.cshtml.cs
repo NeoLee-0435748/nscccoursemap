@@ -10,22 +10,28 @@ using NsccCourseMap.Models;
 
 namespace NsccCourseMap_Neo.Pages.CoursePrerequisites
 {
-    public class IndexModel : PageModel
+  public class IndexModel : PageModel
+  {
+    private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
+
+    public IndexModel(NsccCourseMap.Data.NsccCourseMapContext context)
     {
-        private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
-
-        public IndexModel(NsccCourseMap.Data.NsccCourseMapContext context)
-        {
-            _context = context;
-        }
-
-        public IList<CoursePrerequisite> CoursePrerequisite { get;set; }
-
-        public async Task OnGetAsync()
-        {
-            CoursePrerequisite = await _context.CoursePrerequisites
-                .Include(c => c.Course)
-                .Include(c => c.Prerequisite).ToListAsync();
-        }
+      _context = context;
     }
+
+    public IList<CoursePrerequisite> CoursePrerequisite { get; set; }
+
+    public async Task OnGetAsync()
+    {
+      IQueryable<CoursePrerequisite> sortResult = from cp in _context.CoursePrerequisites
+                                                  select cp;
+
+      sortResult = sortResult
+        .OrderBy(cp => cp.Course.CourseCode)
+        .ThenBy(cp => cp.Prerequisite.CourseCode);
+      CoursePrerequisite = await sortResult
+          .Include(c => c.Course)
+          .Include(c => c.Prerequisite).ToListAsync();
+    }
+  }
 }
