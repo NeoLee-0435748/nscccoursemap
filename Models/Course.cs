@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+//Ref: https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/complex-data-model?view=aspnetcore-5.0&tabs=visual-studio
 namespace NsccCourseMap.Models
 {
   [Table("Courses")]
@@ -13,6 +14,7 @@ namespace NsccCourseMap.Models
     [RegularExpression(@"^[A-Z]{4}[ ]\d{4}$")]
     [StringLength(9, MinimumLength = 9)]
     [Required(ErrorMessage = "Please enter course code")]
+    [Display(Name = "Course Code")]
     public string CourseCode { get; set; }
     [StringLength(100, MinimumLength = 5)]
     [Required(ErrorMessage = "Please enter title")]

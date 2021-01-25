@@ -16,16 +16,19 @@ namespace NsccCourseMap.Models
     [Column(TypeName = "Date")]
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     [Required(ErrorMessage = "Please enter start date")]
+    [Display(Name = "Start Date")]
     public DateTime StartDate { get; set; }
     [CompareTwoDates("StartDate")]
     [Column(TypeName = "Date")]
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     [Required(ErrorMessage = "Please enter end date")]
+    [Display(Name = "End Date")]
     public DateTime EndDate { get; set; }
     [Required]
     public int AcademicYearId { get; set; }
 
     //Navigation properties
+    [Display(Name = "Academic Year")]
     public AcademicYear AcademicYear { get; set; }
     public ICollection<CourseOffering> CourseOfferings { get; set; }
   }

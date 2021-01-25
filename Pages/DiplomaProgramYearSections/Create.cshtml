@@ -14,13 +14,13 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="DiplomaProgramYearSection.DiplomaProgramYearId" class="control-label"></label>
+                <select asp-for="DiplomaProgramYearSection.DiplomaProgramYearId" class ="form-control" asp-items="ViewBag.DiplomaProgramYearId"></select>
+            </div>
+            <div class="form-group">
                 <label asp-for="DiplomaProgramYearSection.Title" class="control-label"></label>
                 <input asp-for="DiplomaProgramYearSection.Title" class="form-control" />
                 <span asp-validation-for="DiplomaProgramYearSection.Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DiplomaProgramYearSection.DiplomaProgramYearId" class="control-label"></label>
-                <select asp-for="DiplomaProgramYearSection.DiplomaProgramYearId" class ="form-control" asp-items="ViewBag.DiplomaProgramYearId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="DiplomaProgramYearSection.AcademicYearId" class="control-label"></label>

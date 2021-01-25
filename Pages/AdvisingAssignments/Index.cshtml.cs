@@ -10,22 +10,32 @@ using NsccCourseMap.Models;
 
 namespace NsccCourseMap_Neo.Pages.AdvisingAssignments
 {
-    public class IndexModel : PageModel
+  public class IndexModel : PageModel
+  {
+    private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
+
+    public IndexModel(NsccCourseMap.Data.NsccCourseMapContext context)
     {
-        private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
-
-        public IndexModel(NsccCourseMap.Data.NsccCourseMapContext context)
-        {
-            _context = context;
-        }
-
-        public IList<AdvisingAssignment> AdvisingAssignment { get;set; }
-
-        public async Task OnGetAsync()
-        {
-            AdvisingAssignment = await _context.AdvisingAssignments
-                .Include(a => a.DiplomaProgramYearSection)
-                .Include(a => a.Instructor).ToListAsync();
-        }
+      _context = context;
     }
+
+    public IList<AdvisingAssignment> AdvisingAssignment { get; set; }
+
+    public async Task OnGetAsync()
+    {
+      IQueryable<AdvisingAssignment> sortResult = from dpy in _context.AdvisingAssignments
+                                                  select dpy;
+
+      sortResult = sortResult
+        .OrderBy(aa => aa.DiplomaProgramYearSection.DiplomaProgramYear.DiplomaProgram.Title)
+        .ThenBy(aa => aa.DiplomaProgramYearSection.DiplomaProgramYear.Title)
+        .ThenBy(aa => aa.DiplomaProgramYearSection.Title);
+      AdvisingAssignment = await sortResult
+        .AsNoTracking()
+          .Include(a => a.DiplomaProgramYearSection)
+          .Include(a => a.Instructor)
+          .Include(a => a.DiplomaProgramYearSection.DiplomaProgramYear.DiplomaProgram)
+          .ToListAsync();
+    }
+  }
 }

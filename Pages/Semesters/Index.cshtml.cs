@@ -10,21 +10,24 @@ using NsccCourseMap.Models;
 
 namespace NsccCourseMap_Neo.Pages.Semesters
 {
-    public class IndexModel : PageModel
+  public class IndexModel : PageModel
+  {
+    private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
+
+    public IndexModel(NsccCourseMap.Data.NsccCourseMapContext context)
     {
-        private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
-
-        public IndexModel(NsccCourseMap.Data.NsccCourseMapContext context)
-        {
-            _context = context;
-        }
-
-        public IList<Semester> Semester { get;set; }
-
-        public async Task OnGetAsync()
-        {
-            Semester = await _context.Semesters
-                .Include(s => s.AcademicYear).ToListAsync();
-        }
+      _context = context;
     }
+
+    public IList<Semester> Semester { get; set; }
+
+    public async Task OnGetAsync()
+    {
+      IQueryable<Semester> sortResult = from s in _context.Semesters
+                                        select s;
+
+      sortResult = sortResult.OrderByDescending(s => s.StartDate);
+      Semester = await sortResult.AsNoTracking().Include(s => s.AcademicYear).ToListAsync();
+    }
+  }
 }

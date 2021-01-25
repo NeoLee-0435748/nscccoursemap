@@ -16,9 +16,11 @@ namespace NsccCourseMap.Models
     [Required(ErrorMessage = "Please enter title")]
     public string Title { get; set; }
     [Required]
+    [Display(Name = "Diploma Program")]
     public int DiplomaProgramId { get; set; }
 
     //Navigation properties
+    [Display(Name = "Diploma Program")]
     public DiplomaProgram DiplomaProgram { get; set; }
     public ICollection<DiplomaProgramYearSection> DiplomaProgramYearSections { get; set; }
   }

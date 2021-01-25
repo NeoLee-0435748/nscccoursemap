@@ -16,13 +16,17 @@ namespace NsccCourseMap.Models
     [Required(ErrorMessage = "Please enter title")]
     public string Title { get; set; }
     [Required]
+    [Display(Name = "Diploma Program Year")]
     public int DiplomaProgramYearId { get; set; }
     [Required]
+    [Display(Name = "Academic Year")]
     public int AcademicYearId { get; set; }
 
     //Navigation properties
+    [Display(Name = "Diploma Program Year")]
     public DiplomaProgramYear DiplomaProgramYear { get; set; }
     public ICollection<CourseOffering> CourseOfferings { get; set; }
+    [Display(Name = "Academic Year")]
     public AcademicYear AcademicYear { get; set; }
     public ICollection<AdvisingAssignment> AdvisingAssignments { get; set; }
   }

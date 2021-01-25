@@ -2,10 +2,10 @@
 @model NsccCourseMap_Neo.Pages.AdvisingAssignments.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Advising Assignments";
 }
 
-<h1>Index</h1>
+<h1>Advising Assignments</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -19,24 +19,40 @@
             <th>
                 @Html.DisplayNameFor(model => model.AdvisingAssignment[0].DiplomaProgramYearSection)
             </th>
+            <th>
+                @Html.DisplayNameFor(model =>
+                model.AdvisingAssignment[0].DiplomaProgramYearSection.DiplomaProgramYear.DiplomaProgram)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model =>
+                model.AdvisingAssignment[0].DiplomaProgramYearSection.DiplomaProgramYear)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.AdvisingAssignment) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Instructor.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiplomaProgramYearSection.Title)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.AdvisingAssignment)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Instructor.FirstName) @Html.DisplayFor(modelItem =>
+                item.Instructor.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiplomaProgramYearSection.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiplomaProgramYearSection.DiplomaProgramYear.DiplomaProgram.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiplomaProgramYearSection.DiplomaProgramYear.Title)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

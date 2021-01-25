@@ -12,9 +12,11 @@ namespace NsccCourseMap.Models
     public int Id { get; set; }
     // [StringLength(50, MinimumLength = 3)]
     [Required(ErrorMessage = "Please enter first name")]
+    [Display(Name = "First Name")]
     public string FirstName { get; set; }
     // [StringLength(50, MinimumLength = 3)]
     [Required(ErrorMessage = "Please enter last name")]
+    [Display(Name = "Last Name")]
     public string LastName { get; set; }
 
     //Navigation properties

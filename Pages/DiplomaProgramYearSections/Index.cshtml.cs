@@ -10,22 +10,32 @@ using NsccCourseMap.Models;
 
 namespace NsccCourseMap_Neo.Pages.DiplomaProgramYearSections
 {
-    public class IndexModel : PageModel
+  public class IndexModel : PageModel
+  {
+    private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
+
+    public IndexModel(NsccCourseMap.Data.NsccCourseMapContext context)
     {
-        private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
-
-        public IndexModel(NsccCourseMap.Data.NsccCourseMapContext context)
-        {
-            _context = context;
-        }
-
-        public IList<DiplomaProgramYearSection> DiplomaProgramYearSection { get;set; }
-
-        public async Task OnGetAsync()
-        {
-            DiplomaProgramYearSection = await _context.DiplomaProgramYearSections
-                .Include(d => d.AcademicYear)
-                .Include(d => d.DiplomaProgramYear).ToListAsync();
-        }
+      _context = context;
     }
+
+    public IList<DiplomaProgramYearSection> DiplomaProgramYearSection { get; set; }
+
+    public async Task OnGetAsync()
+    {
+      IQueryable<DiplomaProgramYearSection> sortResult = from dpys in _context.DiplomaProgramYearSections
+                                                         select dpys;
+
+      sortResult = sortResult
+        .OrderByDescending(dpys => dpys.AcademicYear.Title)
+        .ThenBy(dpys => dpys.DiplomaProgramYear.Title)
+        .ThenBy(dpys => dpys.Title);
+      DiplomaProgramYearSection = await sortResult
+        .AsNoTracking()
+        .Include(d => d.AcademicYear)
+        .Include(d => d.DiplomaProgramYear)
+        .Include(d => d.DiplomaProgramYear.DiplomaProgram)
+        .ToListAsync();
+    }
+  }
 }

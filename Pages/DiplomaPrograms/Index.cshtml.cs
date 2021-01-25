@@ -10,20 +10,24 @@ using NsccCourseMap.Models;
 
 namespace NsccCourseMap_Neo.Pages.DiplomaPrograms
 {
-    public class IndexModel : PageModel
+  public class IndexModel : PageModel
+  {
+    private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
+
+    public IndexModel(NsccCourseMap.Data.NsccCourseMapContext context)
     {
-        private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
-
-        public IndexModel(NsccCourseMap.Data.NsccCourseMapContext context)
-        {
-            _context = context;
-        }
-
-        public IList<DiplomaProgram> DiplomaProgram { get;set; }
-
-        public async Task OnGetAsync()
-        {
-            DiplomaProgram = await _context.DiplomaPrograms.ToListAsync();
-        }
+      _context = context;
     }
+
+    public IList<DiplomaProgram> DiplomaProgram { get; set; }
+
+    public async Task OnGetAsync()
+    {
+      IQueryable<DiplomaProgram> sortResult = from dp in _context.DiplomaPrograms
+                                              select dp;
+
+      sortResult = sortResult.OrderBy(dp => dp.Title);
+      DiplomaProgram = await sortResult.AsNoTracking().ToListAsync();
+    }
+  }
 }
