@@ -10,31 +10,34 @@ using NsccCourseMap.Models;
 
 namespace NsccCourseMap_Neo.Pages.DiplomaPrograms
 {
-    public class DetailsModel : PageModel
+  public class DetailsModel : PageModel
+  {
+    private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
+
+    public DetailsModel(NsccCourseMap.Data.NsccCourseMapContext context)
     {
-        private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
-
-        public DetailsModel(NsccCourseMap.Data.NsccCourseMapContext context)
-        {
-            _context = context;
-        }
-
-        public DiplomaProgram DiplomaProgram { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            DiplomaProgram = await _context.DiplomaPrograms.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (DiplomaProgram == null)
-            {
-                return NotFound();
-            }
-            return Page();
-        }
+      _context = context;
     }
+
+    public DiplomaProgram DiplomaProgram { get; set; }
+
+    public async Task<IActionResult> OnGetAsync(int? id)
+    {
+      if (id == null)
+      {
+        return NotFound();
+      }
+
+      DiplomaProgram = await _context
+      .DiplomaPrograms
+      .Include(dp => dp.DiplomaProgramYears)
+      .FirstOrDefaultAsync(m => m.Id == id);
+
+      if (DiplomaProgram == null)
+      {
+        return NotFound();
+      }
+      return Page();
+    }
+  }
 }

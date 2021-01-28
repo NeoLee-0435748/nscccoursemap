@@ -11,18 +11,27 @@
     <h4>Instructor</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Instructor.FirstName)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Instructor.FirstName)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Instructor.LastName)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Instructor.LastName)
         </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Instructor.AdvisingAssignments)
+        </dt>
+        @foreach (var item in Model.Instructor.AdvisingAssignments)
+        {
+            <dd class="col-sm-10">
+                @Html.DisplayFor(modelItem => item.DiplomaProgramYearSectionId)
+            </dd>
+        }
     </dl>
 </div>
 <div>

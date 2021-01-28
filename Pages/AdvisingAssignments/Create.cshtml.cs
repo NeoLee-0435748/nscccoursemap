@@ -16,6 +16,12 @@ namespace NsccCourseMap_Neo.Pages.AdvisingAssignments
     public string Title { get; set; }
   }
 
+  public class NewInstructorsData
+  {
+    public int Id { get; set; }
+    public string Fullname { get; set; }
+  }
+
   public class CreateModel : PageModel
   {
     private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
@@ -43,7 +49,20 @@ namespace NsccCourseMap_Neo.Pages.AdvisingAssignments
 
       ViewData["DiplomaProgramYearSectionId"] = new SelectList(newSectionsData, "Id", "Title");
       //   ViewData["DiplomaProgramYearSectionId"] = new SelectList(_context.DiplomaProgramYearSections, "Id", "Title");
-      ViewData["InstructorId"] = new SelectList(_context.Instructors, "Id", "FirstName");
+
+      IQueryable<Instructor> sortInstructorsResult = from i in _context.Instructors
+                                                     select i;
+
+      List<NewInstructorsData> newInstructorsData = sortInstructorsResult
+      .Select(i => new NewInstructorsData()
+      {
+        Id = i.Id,
+        Fullname = i.FirstName
+                   + " "
+                   + i.LastName
+      }).ToList();
+      ViewData["InstructorId"] = new SelectList(newInstructorsData, "Id", "Fullname");
+      // ViewData["InstructorId"] = new SelectList(_context.Instructors, "Id", "FirstName");
       return Page();
     }
 

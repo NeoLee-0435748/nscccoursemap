@@ -11,35 +11,45 @@
     <h4>CourseOffering</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.CourseOffering.IsDirectedElective)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CourseOffering.IsDirectedElective)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.CourseOffering.Course)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CourseOffering.Course.CourseCode)
+            @Html.DisplayFor(model => model.CourseOffering.Course.CourseCode)&nbsp;-&nbsp;
+            @Html.DisplayFor(model => model.CourseOffering.Course.Title)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.CourseOffering.Instructor)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CourseOffering.Instructor.FirstName)
+            @Html.DisplayFor(model => model.CourseOffering.Instructor.FirstName)&nbsp;
+            @Html.DisplayFor(model => model.CourseOffering.Instructor.LastName)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.CourseOffering.DiplomaProgramYearSection)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CourseOffering.DiplomaProgramYearSection.Title)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.CourseOffering.Semester)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CourseOffering.Semester.Name)
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model =>
+            model.CourseOffering.DiplomaProgramYearSection.DiplomaProgramYear.DiplomaProgram)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model =>
+            model.CourseOffering.DiplomaProgramYearSection.DiplomaProgramYear.DiplomaProgram.Title)
         </dd>
     </dl>
 </div>

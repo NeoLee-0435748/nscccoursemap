@@ -32,16 +32,16 @@ namespace NsccCourseMap.Models
       #region SEED DIPLOMA PROGRAMS
 
       context.DiplomaPrograms.AddRange(
-        new DiplomaProgram { Title = "IT - Web Programming" },
-        new DiplomaProgram { Title = "IT - Programming" },
-        new DiplomaProgram { Title = "IT - Data Analytics" },
-        new DiplomaProgram { Title = "IT - Database Administration" },
-        new DiplomaProgram { Title = "IT - Systems Management & Security" },
-        new DiplomaProgram { Title = "IT - Generalist" },
-        new DiplomaProgram { Title = "Cyber Security" },
-        new DiplomaProgram { Title = "Computer Electronics Technician" },
-        new DiplomaProgram { Title = "Business Intelligence Analytics" },
-        new DiplomaProgram { Title = "Embedded Systems Programming" }
+          new DiplomaProgram { Title = "IT - Web Programming" },
+          new DiplomaProgram { Title = "IT - Programming" },
+          new DiplomaProgram { Title = "IT - Data Analytics" },
+          new DiplomaProgram { Title = "IT - Database Administration" },
+          new DiplomaProgram { Title = "IT - Systems Management & Security" },
+          new DiplomaProgram { Title = "IT - Generalist" },
+          new DiplomaProgram { Title = "Cyber Security" },
+          new DiplomaProgram { Title = "Computer Electronics Technician" },
+    new DiplomaProgram { Title = "Business Intelligence Analytics" },
+new DiplomaProgram { Title = "Embedded Systems Programming" }
       );
       context.SaveChanges();
 
@@ -70,6 +70,7 @@ new AcademicYear { Title = "2020-21" }
           new Instructor { FirstName = "Yousef", LastName = "Abu Baker" },
           new Instructor { FirstName = "Tanyia", LastName = "Arenburg" },
           new Instructor { FirstName = "Michael", LastName = "Caines" },
+new Instructor { FirstName = "George", LastName = "Campanis" },
           new Instructor { FirstName = "Pourush", LastName = "Chowdhary" },
           new Instructor { FirstName = "Michael", LastName = "Crocker" },
           new Instructor { FirstName = "Bill", LastName = "Cunningham" },
@@ -98,8 +99,7 @@ new Instructor { FirstName = "Alfred", LastName = "Parks" },
           new Instructor { FirstName = "Dean", LastName = "Tsaltas" },
           new Instructor { FirstName = "Anne-Marie", LastName = "Verge" },
           new Instructor { FirstName = "Todd", LastName = "Verge" },
-          new Instructor { FirstName = "Ken", LastName = "Warren" },
-          new Instructor { FirstName = "George", LastName = "Campanis" }
+          new Instructor { FirstName = "Ken", LastName = "Warren" }
       );
       context.SaveChanges();
 
@@ -206,7 +206,6 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
           new Course { CourseCode = "OSYS 2020", Title = "Windows Security" },
           new Course { CourseCode = "OSYS 2022", Title = "Linux Scripting" },
           new Course { CourseCode = "OSYS 2040", Title = "Web Server Fundamentals" },
-          new Course { CourseCode = "PROG 3011", Title = "Embedded C" },
           new Course { CourseCode = "OSYS 3012", Title = "Embedded Operating Systems" },
           new Course { CourseCode = "OSYS 3017", Title = "Database Server Management in Linux" },
           new Course { CourseCode = "OSYS 3030", Title = "Network Services using Linux" },
@@ -220,6 +219,7 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
           new Course { CourseCode = "PROG 2400", Title = "Data Structures" },
           new Course { CourseCode = "PROG 2500", Title = "Windows Programming C#" },
           new Course { CourseCode = "PROG 2700", Title = "Client-Side Programming" },
+new Course { CourseCode = "PROG 3011", Title = "Embedded C" },
           new Course { CourseCode = "PROG 3012", Title = "IoT Programming with JavaScript" },
           new Course { CourseCode = "PROG 3017", Title = "Full Stack Programming" },
           new Course { CourseCode = "SAAD 1001", Title = "Intro to Systems Analysis & Design" },
@@ -933,11 +933,11 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
       #endregion //2019-20
 
       #region 2020-21
-    new AdvisingAssignment
-    {
-      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id,
-      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Web Programming" && dpys.AcademicYear.Title == "2020-21").Id
-    },
+                        new AdvisingAssignment
+                        {
+                          InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id,
+                          DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Web Programming" && dpys.AcademicYear.Title == "2020-21").Id
+                        },
           new AdvisingAssignment
           {
             InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
@@ -1014,6 +1014,7 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
             DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security" && dpys.AcademicYear.Title == "2020-21").Id
           }
           #endregion //2020-21
+
       );
       context.SaveChanges();
 
@@ -1022,6 +1023,7 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
       #region SEED COURSE OFFERINGS
 
       context.CourseOfferings.AddRange(
+
       #region IT - WEB PROGRAMMING DIPLOMA    
 
       #region FALL 2018 - WEB DIPLOMA - YEAR 1 - SECTION 1
@@ -1606,41 +1608,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
       #endregion
 
       #region WINTER 2019 - PROGRAMMING DIPLOMA - YEAR 1 - SECTION 1
@@ -1651,49 +1653,49 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 1001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Anne-Marie" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
-                      IsDirectedElective = true
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 1001").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Anne-Marie" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
+                IsDirectedElective = true
+              },
       #endregion
 
       #region FALL 2018 - PROGRAMMING DIPLOMA - YEAR 2 - SECTION 1
@@ -1704,41 +1706,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2100").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INET 2005").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2100").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2100").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INET 2005").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2100").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
       #endregion
 
       #region WINTER 2019 - PROGRAMMING DIPLOMA - YEAR 2 - SECTION 1
@@ -1749,42 +1751,42 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2500").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2500").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
       #endregion
 
       #region FALL 2019 - PROGRAMMING DIPLOMA - YEAR 1 - SECTION 1
@@ -1795,41 +1797,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
       #endregion
 
       #region WINTER 2020 - PROGRAMMING DIPLOMA - YEAR 1 - SECTION 1
@@ -1840,49 +1842,49 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 1001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Anne-Marie" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
-                      IsDirectedElective = true
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 1001").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Anne-Marie" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
+                IsDirectedElective = true
+              },
       #endregion
 
       #region FALL 2019 - PROGRAMMING DIPLOMA - YEAR 1 - SECTION 2
@@ -1893,41 +1895,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
       #endregion
 
       #region WINTER 2020 - PROGRAMMING DIPLOMA - YEAR 1 - SECTION 2
@@ -1938,49 +1940,49 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 1001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Anne-Marie" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
-                      IsDirectedElective = true
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 1001").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Anne-Marie" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
+                IsDirectedElective = true
+              },
       #endregion
 
       #region FALL 2019 - PROGRAMMING DIPLOMA - YEAR 1 - SECTION 3
@@ -1991,41 +1993,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
+              },
       #endregion
 
       #region WINTER 2020 - PROGRAMMING DIPLOMA - YEAR 1 - SECTION 3
@@ -2036,49 +2038,49 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 1001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Anne-Marie" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
-                      IsDirectedElective = true
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 1001").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Anne-Marie" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 3" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
+                IsDirectedElective = true
+              },
       #endregion
 
       #region FALL 2019 - PROGRAMMING DIPLOMA - YEAR 2 - SECTION 1
@@ -2089,41 +2091,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2100").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INET 2005").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2100").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2100").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INET 2005").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2100").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
       #endregion
 
       #region WINTER 2020 - PROGRAMMING DIPLOMA - YEAR 2 - SECTION 1
@@ -2134,42 +2136,42 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2500").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2500").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
       #endregion
 
       #region FALL 2020 - PROGRAMMING DIPLOMA - YEAR 1 - SECTION 1
@@ -2180,41 +2182,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
       #endregion
 
       #region WINTER 2021 - PROGRAMMING DIPLOMA - YEAR 1 - SECTION 1
@@ -2225,49 +2227,49 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Muise").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Drover").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 1001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Muise").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
-                      IsDirectedElective = true
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Muise").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Drover").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 1001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Muise").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
+                IsDirectedElective = true
+              },
       #endregion
 
       #region FALL 2020 - PROGRAMMING DIPLOMA - YEAR 1 - SECTION 2
@@ -2278,41 +2280,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
       #endregion
 
       #region WINTER 2021 - PROGRAMMING DIPLOMA - YEAR 1 - SECTION 2
@@ -2323,49 +2325,49 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Drover").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 1001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Muise").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
-                      IsDirectedElective = true
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Drover").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 1001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Muise").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
+                IsDirectedElective = true
+              },
       #endregion
 
       #region FALL 2020 - PROGRAMMING DIPLOMA - YEAR 2 - SECTION 1
@@ -2376,41 +2378,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2100").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INET 2005").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2100").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2100").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INET 2005").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2100").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
       #endregion
 
       #region WINTER 2021 - PROGRAMMING DIPLOMA - YEAR 2 - SECTION 1
@@ -2421,42 +2423,42 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2500").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2500").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
       #endregion
 
       #region FALL 2020 - PROGRAMMING DIPLOMA - YEAR 2 - SECTION 2
@@ -2467,41 +2469,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2100").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INET 2005").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2100").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2100").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INET 2005").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2100").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
       #endregion
 
       #region WINTER 2021 - PROGRAMMING DIPLOMA - YEAR 2 - SECTION 2
@@ -2512,45 +2514,45 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2500").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2500").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 2" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
       #endregion
 
-      #endregion //IT - PROGRAMMING DIPLOMA       
+      #endregion //IT - PROGRAMMING DIPLOMA                
 
       #region IT - GENERALIST DIPLOMA
 
@@ -2562,41 +2564,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
       #endregion
 
       #region WINTER 2019 - GENERALIST DIPLOMA - YEAR 1 - SECTION 1
@@ -2607,53 +2609,53 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "South").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 1001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Anne-Marie" && i.LastName == "Verge").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
-                      IsDirectedElective = true
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "South").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 1001").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Anne-Marie" && i.LastName == "Verge").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id,
+                IsDirectedElective = true
+              },
       #endregion
 
       #region FALL 2018 - GENERALIST DIPLOMA - YEAR 2 - SECTION 1
@@ -2664,51 +2666,51 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2100").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 3100").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Anne-Marie" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2100").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "COMP 2000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2100").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 3100").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Anne-Marie" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2100").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "COMP 2000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
+              },
       #endregion
 
       #region WINTER 2019 - GENERALIST DIPLOMA - YEAR 2 - SECTION 1
@@ -2719,45 +2721,45 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INET 2005").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "CSTN 4015").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id,
-                      IsDirectedElective = true
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INET 2005").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "CSTN 4015").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id,
+                IsDirectedElective = true
+              },
       #endregion
 
       #region FALL 2019 - GENERALIST DIPLOMA - YEAR 2 - SECTION 1
@@ -2768,51 +2770,51 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2100").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 3100").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Anne-Marie" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2100").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "COMP 2000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2100").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 3100").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Anne-Marie" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2100").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "COMP 2000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
+              },
       #endregion
 
       #region WINTER 2020 - GENERALIST DIPLOMA - YEAR 2 - SECTION 1
@@ -2823,48 +2825,48 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INET 2005").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id,
-                      IsDirectedElective = true
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id,
-                      IsDirectedElective = true
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INET 2005").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id,
+                IsDirectedElective = true
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Generalist").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id,
+                IsDirectedElective = true
+              },
       #endregion
 
-      #endregion //IT - GENERALIST DIPLOMA         
+      #endregion //IT - GENERALIST DIPLOMA            
 
       #region IT - SYSTEMS MANAGEMENT AND SECURITY DIPLOMA
 
@@ -2876,41 +2878,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "HDWR 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "HDWR 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
       #endregion
 
       #region WINTER 2019 - SYSTEMS MANAGEMENT DIPLOMA - YEAR 1 - SECTION 1
@@ -2921,41 +2923,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2710").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1500").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2710").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1500").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
       #endregion
 
       #region FALL 2018 - SYSTEMS MANAGEMENT DIPLOMA - YEAR 2 - SECTION 1
@@ -2966,48 +2968,48 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2500").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 3030").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 3700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ICOM 1325").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2500").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 3030").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 3700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ICOM 1325").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
+              },
       #endregion
 
       #region WINTER 2019 - SYSTEMS MANAGEMENT DIPLOMA - YEAR 2 - SECTION 1
@@ -3018,48 +3020,48 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3800").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 3500").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "CSTN 4015").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ICOM 3010").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3075").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3800").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 3500").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "CSTN 4015").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ICOM 3010").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3075").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
       #endregion
 
       #region FALL 2019 - SYSTEMS MANAGEMENT DIPLOMA - YEAR 1 - SECTION 1
@@ -3070,41 +3072,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "HDWR 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "HDWR 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
       #endregion
 
       #region WINTER 2020 - SYSTEMS MANAGEMENT DIPLOMA - YEAR 1 - SECTION 1
@@ -3115,41 +3117,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2710").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1500").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2710").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1500").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
       #endregion
 
       #region FALL 2019 - SYSTEMS MANAGEMENT DIPLOMA - YEAR 2 - SECTION 1
@@ -3160,48 +3162,48 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2500").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 3030").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 3700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ICOM 1325").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2500").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 3030").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 3700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ICOM 1325").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
+              },
       #endregion
 
       #region WINTER 2020 - SYSTEMS MANAGEMENT DIPLOMA - YEAR 2 - SECTION 1
@@ -3212,48 +3214,48 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3800").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 3500").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "CSTN 4015").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ICOM 3010").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3075").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3800").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 3500").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "CSTN 4015").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ICOM 3010").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3075").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
       #endregion
 
       #region FALL 2020 - SYSTEMS MANAGEMENT DIPLOMA - YEAR 1 - SECTION 1
@@ -3264,42 +3266,43 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "HDWR 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1200").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "HDWR 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
       #endregion
+
       #region WINTER 2021 - SYSTEMS MANAGEMENT DIPLOMA - YEAR 1 - SECTION 1
                     new CourseOffering
                     {
@@ -3308,41 +3311,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McGillivary").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2710").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McGillivary").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1500").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McGillivary").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2710").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McGillivary").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1500").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
       #endregion
 
       #region FALL 2020 - SYSTEMS MANAGEMENT DIPLOMA - YEAR 2 - SECTION 1
@@ -3353,51 +3356,51 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2500").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 3030").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 3700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ICOM 1325").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Emma" && i.LastName == "Street").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 2500").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 3030").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 3700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "SAAD 1002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ICOM 1325").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Emma" && i.LastName == "Street").Id
+              },
       #endregion
 
-      #region WINTER 2020 - SYSTEMS MANAGEMENT DIPLOMA - YEAR 2 - SECTION 1
+      #region WINTER 2021 - SYSTEMS MANAGEMENT DIPLOMA - YEAR 2 - SECTION 1
                     new CourseOffering
                     {
                       SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
@@ -3405,50 +3408,51 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3800").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 3500").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "CSTN 4015").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McGillivary").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ICOM 3010").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Emma" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3075").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3800").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 3500").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "CSTN 4015").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McGillivary").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ICOM 3010").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Emma" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Systems Management & Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3075").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
       #endregion
-      #endregion //IT - SYSTEMS MANAGEMENT AND SECURITY DIPLOMA 
+
+      #endregion //IT - SYSTEMS MANAGEMENT AND SECURITY DIPLOMA            
 
       #region IT - DATA ANALYTICS DIPLOMA
 
@@ -3460,41 +3464,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "South").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "South").Id
+              },
       #endregion
 
       #region WINTER 2019 - DATA ANALYTICS DIPLOMA - YEAR 1 - SECTION 1
@@ -3505,48 +3509,48 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3075").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3075").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
       #endregion
 
       #region FALL 2018 - DATA ANALYTICS DIPLOMA - YEAR 2 - SECTION 1
@@ -3557,41 +3561,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3050").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3018").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INET 3700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3019").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3017").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3050").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3018").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INET 3700").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3019").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3017").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
+              },
       #endregion
 
       #region WINTER 2019 - DATA ANALYTICS DIPLOMA - YEAR 2 - SECTION 1
@@ -3602,41 +3606,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3090").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3085").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3090").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3085").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
       #endregion
 
       #region FALL 2019 - DATA ANALYTICS DIPLOMA - YEAR 1 - SECTION 1
@@ -3647,41 +3651,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
       #endregion
 
       #region WINTER 2020 - DATA ANALYTICS DIPLOMA - YEAR 1 - SECTION 1
@@ -3692,48 +3696,48 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3075").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3075").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
       #endregion
 
       #region FALL 2019 - DATA ANALYTICS DIPLOMA - YEAR 2 - SECTION 1
@@ -3744,41 +3748,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3050").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3018").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INET 3700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3019").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3017").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3050").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3018").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INET 3700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3019").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3017").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
+              },
       #endregion
 
       #region WINTER 2020 - DATA ANALYTICS DIPLOMA - YEAR 2 - SECTION 1
@@ -3789,41 +3793,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3090").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3085").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3090").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3085").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
       #endregion
 
       #region FALL 2020 - DATA ANALYTICS DIPLOMA - YEAR 1 - SECTION 1
@@ -3834,41 +3838,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
       #endregion
 
       #region WINTER 2021 - DATA ANALYTICS DIPLOMA - YEAR 1 - SECTION 1
@@ -3879,48 +3883,48 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3075").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3075").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
       #endregion
 
       #region FALL 2020 - DATA ANALYTICS DIPLOMA - YEAR 2 - SECTION 1
@@ -3931,41 +3935,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3050").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3018").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INET 3700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3019").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3017").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3050").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3018").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INET 3700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3019").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3017").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
+              },
       #endregion
 
       #region WINTER 2021 - DATA ANALYTICS DIPLOMA - YEAR 2 - SECTION 1
@@ -3976,41 +3980,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3090").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3085").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3090").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3085").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Data Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
       #endregion
 
       #endregion //IT - DATA ANALYTICS DIPLOMA
@@ -4025,41 +4029,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Warren").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Warren").Id
+              },
       #endregion
 
       #region WINTER 2019 - DATABASE ADMINISTRATION DIPLOMA - YEAR 1 - SECTION 1
@@ -4070,48 +4074,48 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1300").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1300").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
       #endregion
 
       #region FALL 2018 - DATABASE ADMINISTRATION DIPLOMA - YEAR 2 - SECTION 1
@@ -4122,41 +4126,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3050").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 3017").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INET 3700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3085").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3021").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3050").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 3017").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INET 3700").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3085").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3021").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
       #endregion
 
       #region WINTER 2019 - DATABASE ADMINISTRATION DIPLOMA - YEAR 2 - SECTION 1
@@ -4167,41 +4171,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3018").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3035").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3080").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3025").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3018").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3035").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3080").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3025").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
       #endregion
 
       #region FALL 2019 - DATABASE ADMINISTRATION DIPLOMA - YEAR 1 - SECTION 1
@@ -4212,41 +4216,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dutka").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
       #endregion
 
       #region WINTER 2020 - DATABASE ADMINISTRATION DIPLOMA - YEAR 1 - SECTION 1
@@ -4257,48 +4261,48 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1300").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1300").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
       #endregion
 
       #region FALL 2019 - DATABASE ADMINISTRATION DIPLOMA - YEAR 2 - SECTION 1
@@ -4309,41 +4313,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3050").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 3017").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INET 3700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3085").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3021").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3050").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 3017").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INET 3700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3085").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3021").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
       #endregion
 
       #region WINTER 2020 - DATABASE ADMINISTRATION DIPLOMA - YEAR 2 - SECTION 1
@@ -4354,41 +4358,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3018").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3035").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3080").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3025").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3018").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3035").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3080").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3025").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Arenburg").Id
+              },
       #endregion
 
       #region FALL 2020 - DATABASE ADMINISTRATION DIPLOMA - YEAR 1 - SECTION 1
@@ -4399,41 +4403,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Emma" && i.LastName == "Street").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1700").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Emma" && i.LastName == "Street").Id
+              },
       #endregion
 
       #region WINTER 2021 - DATABASE ADMINISTRATION DIPLOMA - YEAR 1 - SECTION 1
@@ -4444,48 +4448,48 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1300").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McGillivary").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2007").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1400").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Abu Baker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1000").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4002").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1300").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McGillivary").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 2007").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
+              },
       #endregion
 
       #region FALL 2020 - DATABASE ADMINISTRATION DIPLOMA - YEAR 2 - SECTION 1
@@ -4496,44 +4500,42 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3050").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 3017").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INET 3700").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3085").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3021").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Emma" && i.LastName == "Street").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3050").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 3017").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INET 3700").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3085").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3021").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Emma" && i.LastName == "Street").Id
+              },
       #endregion
-
-
 
       #region WINTER 2021 - DATABASE ADMINISTRATION DIPLOMA - YEAR 2 - SECTION 1
                     new CourseOffering
@@ -4543,44 +4545,44 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3018").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3035").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3080").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Emma" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3025").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Emma" && i.LastName == "Street").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Gillespie").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3018").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Cunningham").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3035").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Campanis").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3080").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Emma" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "IT - Database Administration").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3025").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Emma" && i.LastName == "Street").Id
+              },
       #endregion
 
-      #endregion //IT - DATABASE ADMIN DIPLOMA
+      #endregion //IT - DATABASE ADMIN DIPLOMA            
 
       #region CYBER SECURITY DIPLOMA
 
@@ -4592,41 +4594,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1015").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1020").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1015").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1020").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 1005").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1015").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1020").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1015").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Crocker").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1020").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Connell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 1005").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
       #endregion
 
       #region WINTER 2019 - DATABASE ADMINISTRATION DIPLOMA - YEAR 1 - SECTION 1
@@ -4637,41 +4639,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 2022").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2022").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2022").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 2020").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2025").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 2022").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2022").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2022").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 2020").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Mogensen").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2025").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
       #endregion
 
       #region FALL 2019 - CYBER SECURITY DIPLOMA - YEAR 1 - SECTION 1
@@ -4682,41 +4684,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1015").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1020").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1015").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1020").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 1005").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1015").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1020").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1015").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1020").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 1005").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
       #endregion
 
       #region WINTER 2020 - CYBER SECURITY DIPLOMA - YEAR 1 - SECTION 1
@@ -4727,41 +4729,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 2022").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2022").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2022").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 2020").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2025").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 2022").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2022").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2022").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 2020").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2025").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
       #endregion
 
       #region FALL 2019 - CYBER SECURITY DIPLOMA - YEAR 2 - SECTION 1
@@ -4772,41 +4774,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2076").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2077").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2078").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2079").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 2075").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2076").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2077").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2078").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2079").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 2075").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
+              },
       #endregion
 
       #region WINTER 2020 - CYBER SECURITY DIPLOMA - YEAR 2 - SECTION 1
@@ -4817,41 +4819,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3077").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3078").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3079").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3080").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3077").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3078").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3079").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3080").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
       #endregion
 
       #region FALL 2020 - CYBER SECURITY DIPLOMA - YEAR 1 - SECTION 1
@@ -4862,41 +4864,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 1700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1015").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1020").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1015").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1020").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 1005").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 1015").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 1020").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 1015").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 1020").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 1005").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
       #endregion
 
       #region WINTER 2021 - CYBER SECURITY DIPLOMA - YEAR 1 - SECTION 1
@@ -4907,41 +4909,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 2700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 2022").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2022").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2022").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 2020").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2025").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 2022").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2022").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 2022").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 2020").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2025").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
       #endregion
 
       #region FALL 2020 - CYBER SECURITY DIPLOMA - YEAR 2 - SECTION 1
@@ -4952,41 +4954,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2076").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2077").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2078").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2079").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 2075").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2076").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2077").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2078").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 2079").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "WEBD 2075").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
+              },
       #endregion
 
       #region WINTER 2021 - CYBER SECURITY DIPLOMA - YEAR 2 - SECTION 1
@@ -4997,44 +4999,44 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Joy").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3077").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3078").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Emma" && i.LastName == "Street").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3079").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3080").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3077").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3078").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Emma" && i.LastName == "Street").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3079").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Hinton").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Cyber Security").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3080").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Paul" && i.LastName == "Street").Id
+              },
       #endregion
 
-      #endregion //CYBER SECURITY DIPLOMA       
+      #endregion //CYBER SECURITY DIPLOMA
 
       #region COMPUTER ELECTRONICS TECHNICIAN DIPLOMA
 
@@ -5046,41 +5048,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 3700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 2015").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 3025").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 3010").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 2000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 1015").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 2015").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 3025").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 3010").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "APPD 2000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Russell").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2018").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 1015").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
       #endregion
 
       #region WINTER 2019 - COMPUTER ELECTRONICS TECHNICIAN DIPLOMA - YEAR 2 - SECTION 1
@@ -5091,41 +5093,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "COMM 4700").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Scarfone").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 4001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 2020").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 2105").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 3020").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 3001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 4001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 2020").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 2105").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 3020").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 2" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Computer Electronics Technician").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "CETN 3001").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
       #endregion
 
       #endregion //COMPUTER ELECTRONICS TECHNICIAN DIPLOMA
@@ -5140,34 +5142,34 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2101").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4075").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2010").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4001").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "D'Entremont").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 4075").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2010").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 4001").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2019").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2104").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "D'Entremont").Id
+              },
       #endregion
 
       #region WINTER 2020 - BUSINESS INTELLIGENCE ANALYTICS - YEAR 1 - SECTION 1
@@ -5178,34 +5180,34 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 2103").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3090").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3075").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3050").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3090").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "DBAS 3075").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Dolinger").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Business Intelligence Analytics").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3050").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "McLeod").Id
+              },
       #endregion
 
       #endregion //BUSINESS INTELLIGENCE ANALYTICS
@@ -5220,41 +5222,41 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "OSYS 3012").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "Tsaltas").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 3012").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 3011").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ELEC 3010").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ELEC 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3010").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 3012").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "O'Driscoll").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "PROG 3011").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ELEC 3010").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ELEC 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Fall 2020").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3010").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
       #endregion
 
       #region WINTER 2021 - EMBEDDED SYSTEMS PROGRAMMING - YEAR 1 - SECTION 1
@@ -5265,48 +5267,49 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                       CourseId = generatedCourses.Find(c => c.CourseCode == "ISEC 3010").Id,
                       InstructorId = generatedInstructors.Find(i => i.LastName == "McGillivary").Id
                     },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 3012").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3000").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Muise").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ELEC 3020").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "ELEC 3011").Id,
-                      InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
-                    },
-                    new CourseOffering
-                    {
-                      SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
-                      DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
-                      CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3020").Id,
-                      InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
-                    } //No comma here...end of items
-                    #endregion
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "NETW 3012").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Caines").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "MOBI 3000").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Muise").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ELEC 3020").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "ELEC 3011").Id,
+                InstructorId = generatedInstructors.Find(i => i.LastName == "Shewan").Id
+              },
+              new CourseOffering
+              {
+                SemesterId = generatedSemesters.Find(s => s.Name == "Winter 2021").Id,
+                DiplomaProgramYearSectionId = generatedDiplomaProgramYearSections.Find(dpys => dpys.Title == "Section 1" && dpys.DiplomaProgramYear.Title == "Year 1" && dpys.DiplomaProgramYear.DiplomaProgram.Title == "Embedded Systems Programming").Id,
+                CourseId = generatedCourses.Find(c => c.CourseCode == "INFT 3020").Id,
+                InstructorId = generatedInstructors.Find(i => i.FirstName == "Todd" && i.LastName == "Verge").Id
+              } //No comma here...end of items
+              #endregion
 
-                    #endregion //EMBEDDED SYSTEMS PROGRAMMING     
-            );
+              #endregion //EMBEDDED SYSTEMS PROGRAMMING
+
+      );
       context.SaveChanges();
 
-      #endregion //SEED COURSE OFFERINGS	         
+      #endregion //SEED COURSE OFFERINGS	    		        
 
       #region SEED COURSE PREREQUISITES
 
@@ -5483,6 +5486,7 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
                     new Tuple<string,string>("WEBD 3100", "WEBD 1000"),
                 };
 
+      //VERSION 1 of Course Prerequisites
       foreach (Tuple<string, string> courseAndPreReqPair in courseAndPreReqPairs)
       {
         context.CoursePrerequisites.Add(
@@ -5493,6 +5497,17 @@ new Course { CourseCode = "ELEC 3011", Title = "Practical Electronics II" },
             }
         );
       }
+
+      // //VERSION 2 of Course Prerequisites
+      // Course course = null;
+      // foreach(Tuple<string,string> courseAndPreReqPair in courseAndPreReqPairs)
+      // {
+      //     if(course == null || course.CourseCode != courseAndPreReqPair.Item1){
+      //         course = context.Courses.Where(c => c.CourseCode == courseAndPreReqPair.Item1).First();
+      //     }
+      //     course.Prerequisites.Add(context.Courses.Where(c => c.CourseCode == courseAndPreReqPair.Item2).First());
+      // }
+
       context.SaveChanges();
 
       #endregion //SEED COURSE PREREQUISITES

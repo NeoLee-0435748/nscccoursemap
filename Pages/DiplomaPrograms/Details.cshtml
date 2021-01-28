@@ -17,6 +17,19 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DiplomaProgram.Title)
         </dd>
+        <dt class="col-sm-2">
+            Duration
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.DiplomaProgram.DiplomaProgramYears.Count() == 1)
+            {
+                <p>@Model.DiplomaProgram.DiplomaProgramYears.Count()&nbsp;year</p>
+            }
+            else
+            {
+                <p>@Model.DiplomaProgram.DiplomaProgramYears.Count()&nbsp;years</p>
+            }
+        </dd>
     </dl>
 </div>
 <div>

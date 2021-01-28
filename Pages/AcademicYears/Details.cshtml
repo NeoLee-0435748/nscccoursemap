@@ -11,12 +11,37 @@
     <h4>AcademicYear</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.AcademicYear.Title)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.AcademicYear.Title)
         </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.AcademicYear.Semesters)
+        </dt>
+        <dd class="col-sm-10">
+            @foreach (var item in Model.AcademicYear.Semesters)
+            {
+                @Html.DisplayFor(modelItem => item.Name)<br />
+            }
+        </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.AcademicYear.DiplomaProgramYearSections)
+        </dt>
+
+        @foreach (var item in Model.AcademicYear.DiplomaProgramYearSections)
+        {
+            <dd class="col-sm-10">
+                @Html.DisplayFor(modelItem => item.DiplomaProgramYear.DiplomaProgram.Title)
+                &nbsp;-&nbsp;
+                @Html.DisplayFor(modelItem => item.DiplomaProgramYear.Title)
+                &nbsp;-&nbsp;
+                @Html.DisplayFor(modelItem => item.AdvisingAssignments.First().Instructor.FirstName)
+                &nbsp;
+                @Html.DisplayFor(modelItem => item.AdvisingAssignments.First().Instructor.LastName)
+            </dd>
+        }
     </dl>
 </div>
 <div>

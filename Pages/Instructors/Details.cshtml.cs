@@ -10,31 +10,37 @@ using NsccCourseMap.Models;
 
 namespace NsccCourseMap_Neo.Pages.Instructors
 {
-    public class DetailsModel : PageModel
+  public class DetailsModel : PageModel
+  {
+    private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
+
+    public DetailsModel(NsccCourseMap.Data.NsccCourseMapContext context)
     {
-        private readonly NsccCourseMap.Data.NsccCourseMapContext _context;
-
-        public DetailsModel(NsccCourseMap.Data.NsccCourseMapContext context)
-        {
-            _context = context;
-        }
-
-        public Instructor Instructor { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            Instructor = await _context.Instructors.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (Instructor == null)
-            {
-                return NotFound();
-            }
-            return Page();
-        }
+      _context = context;
     }
+
+    public Instructor Instructor { get; set; }
+
+    public async Task<IActionResult> OnGetAsync(int? id)
+    {
+      if (id == null)
+      {
+        return NotFound();
+      }
+
+      Instructor = await _context
+      .Instructors
+      .Include(i => i.AdvisingAssignments)
+      .ThenInclude(aa => aa.DiplomaProgramYearSection.DiplomaProgramYear.DiplomaProgram)
+      .Include(i => i.AdvisingAssignments)
+      .ThenInclude(aa => aa.DiplomaProgramYearSection.AcademicYear)
+      .FirstOrDefaultAsync(m => m.Id == id);
+
+      if (Instructor == null)
+      {
+        return NotFound();
+      }
+      return Page();
+    }
+  }
 }
