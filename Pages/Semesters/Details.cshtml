@@ -11,30 +11,44 @@
     <h4>Semester</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Semester.Name)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Semester.Name)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Semester.StartDate)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Semester.StartDate)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Semester.EndDate)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Semester.EndDate)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Semester.AcademicYear)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Semester.AcademicYear.Title)
         </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Semester.CourseOfferings)
+        </dt>
+        @foreach (var item in Model.NewCourseOfferingData)
+        {
+            <dd class="col-sm-10">
+                @Html.DisplayFor(modelItem => item.DiplomaProgramTitle)&nbsp;-&nbsp;
+                @Html.DisplayFor(modelItem => item.DiplomaProgramYearTitle)&nbsp;
+                @Html.DisplayFor(modelItem => item.CourseCode)&nbsp;
+                @Html.DisplayFor(modelItem => item.CourseTitle)&nbsp;
+                @Html.DisplayFor(modelItem => item.InstructorName)&nbsp;
+                @Html.DisplayFor(modelItem => item.DirectedElective)
+            </dd>
+        }
     </dl>
 </div>
 <div>

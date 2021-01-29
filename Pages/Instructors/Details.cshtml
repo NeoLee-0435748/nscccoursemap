@@ -26,10 +26,13 @@
         <dt class="col-sm-4">
             @Html.DisplayNameFor(model => model.Instructor.AdvisingAssignments)
         </dt>
-        @foreach (var item in Model.Instructor.AdvisingAssignments)
+        @foreach (var item in Model.NewAdvisingAssignmentsDatas)
         {
             <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.DiplomaProgramYearSectionId)
+                @Html.DisplayFor(modelItem => item.AcademicYearTitle)&nbsp;-&nbsp;
+                @Html.DisplayFor(modelItem => item.DiplomaProgramTitle)&nbsp;
+                @Html.DisplayFor(modelItem => item.DiplomaProgramYearTitle)&nbsp;
+                @Html.DisplayFor(modelItem => item.DiplomaProgramYearSectionTitle)
             </dd>
         }
     </dl>

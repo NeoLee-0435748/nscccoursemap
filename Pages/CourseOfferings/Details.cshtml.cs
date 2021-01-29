@@ -33,7 +33,8 @@ namespace NsccCourseMap_Neo.Pages.CourseOfferings
           .Include(c => c.DiplomaProgramYearSection)
           .ThenInclude(dpys => dpys.DiplomaProgramYear.DiplomaProgram)
           .Include(c => c.Instructor)
-          .Include(c => c.Semester).FirstOrDefaultAsync(m => m.Id == id);
+          .Include(c => c.Semester)
+          .FirstOrDefaultAsync(m => m.Id == id);
 
       if (CourseOffering == null)
       {
