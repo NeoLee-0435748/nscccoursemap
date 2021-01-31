@@ -23,6 +23,35 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DiplomaProgramYear.DiplomaProgram.Title)
         </dd>
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.DiplomaProgramYear.DiplomaProgramYearSections.First().CourseOfferings)
+        </dt>
+        @{
+            string currentDiplomaProgramYearSectionTitle = null;
+            string currentSemesterName = null;
+        }
+        @foreach (var item in Model.NewCourseOfferingData)
+        {
+            if (currentDiplomaProgramYearSectionTitle != item.DiplomaProgramYearSectionTitle ||
+                currentSemesterName != item.SemesterName)
+            {
+                <dd class="col-sm-10">
+                    [
+                    @Html.DisplayFor(modelItem => item.DiplomaProgramYearSectionTitle)
+                    &nbsp;-&nbsp;
+                    @Html.DisplayFor(modelItem => item.SemesterName)
+                    ]
+                </dd>
+                currentDiplomaProgramYearSectionTitle = item.DiplomaProgramYearSectionTitle;
+                currentSemesterName = item.SemesterName;
+            }
+            <dd class="col-sm-10">
+                @Html.DisplayFor(modelItem => item.CourseCode)&nbsp;
+                @Html.DisplayFor(modelItem => item.CourseTitle)&nbsp;-&nbsp;
+                @Html.DisplayFor(modelItem => item.InstructorName)&nbsp;
+                <span style="color:red">@Html.DisplayFor(modelItem => item.DirectedElective)</span>
+            </dd>
+        }
     </dl>
 </div>
 <div>

@@ -27,20 +27,26 @@
             }
         </dd>
         <dt class="col-sm-4">
-            @Html.DisplayNameFor(model => model.AcademicYear.DiplomaProgramYearSections)
+            @Html.DisplayNameFor(model => model.AcademicYear.DiplomaProgramYearSections.First().AdvisingAssignments)
         </dt>
 
-        @foreach (var item in Model.AcademicYear.DiplomaProgramYearSections)
+        @foreach (var dpys in Model.AcademicYear.DiplomaProgramYearSections
+                                                .OrderBy(dpys => dpys.DiplomaProgramYear.Title)
+                                                    .ThenBy(dpys => dpys.DiplomaProgramYear.DiplomaProgram.Title)
+                                                        .ThenBy(dpys => dpys.Title))
         {
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.DiplomaProgramYear.DiplomaProgram.Title)
-                &nbsp;-&nbsp;
-                @Html.DisplayFor(modelItem => item.DiplomaProgramYear.Title)
-                &nbsp;-&nbsp;
-                @Html.DisplayFor(modelItem => item.AdvisingAssignments.First().Instructor.FirstName)
-                &nbsp;
-                @Html.DisplayFor(modelItem => item.AdvisingAssignments.First().Instructor.LastName)
-            </dd>
+            @foreach (var aa in dpys.AdvisingAssignments)
+            {
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(modelItem => dpys.DiplomaProgramYear.DiplomaProgram.Title)
+                    @Html.DisplayFor(modelItem => dpys.DiplomaProgramYear.Title)
+                    (
+                    @Html.DisplayFor(modelItem => dpys.Title)
+                    )&nbsp;-&nbsp;
+                    @Html.DisplayFor(modelItem => aa.Instructor.FirstName)
+                    @Html.DisplayFor(modelItem => aa.Instructor.LastName)
+                </dd>
+            }
         }
     </dl>
 </div>
