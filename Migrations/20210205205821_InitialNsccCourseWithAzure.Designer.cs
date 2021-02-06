@@ -10,8 +10,8 @@ using NsccCourseMap.Data;
 namespace NsccCourseMap_Neo.Migrations
 {
     [DbContext(typeof(NsccCourseMapContext))]
-    [Migration("20210122171900_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210205205821_InitialNsccCourseWithAzure")]
+    partial class InitialNsccCourseWithAzure
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

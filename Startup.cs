@@ -95,7 +95,7 @@ namespace NsccCourseMap_Neo
      });
 
       services.AddDbContext<NsccCourseMapContext>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("NsccCourseMap-Neo")));
+        options.UseSqlServer(Configuration.GetConnectionString("NsccCourseMap_Neo")));
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

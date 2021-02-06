@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NsccCourseMap_Neo.Migrations.NsccCourseMap_NeoIdentityDb
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class InitialIdentityWithAzure : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

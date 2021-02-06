@@ -10,8 +10,8 @@ using NsccCourseMap_Neo.Areas.Identity.Data;
 namespace NsccCourseMap_Neo.Migrations.NsccCourseMap_NeoIdentityDb
 {
     [DbContext(typeof(NsccCourseMap_NeoIdentityDbContext))]
-    [Migration("20210128223242_CreateIdentitySchema")]
-    partial class CreateIdentitySchema
+    [Migration("20210205205845_InitialIdentityWithAzure")]
+    partial class InitialIdentityWithAzure
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

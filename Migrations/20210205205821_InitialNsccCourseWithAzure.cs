@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NsccCourseMap_Neo.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialNsccCourseWithAzure : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
