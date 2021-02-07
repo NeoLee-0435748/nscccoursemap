@@ -15,21 +15,21 @@ namespace NsccCourseMap_Neo.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityColumns()
+                .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.2");
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("NsccCourseMap.Models.AcademicYear", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
 
                     b.HasKey("Id");
 
@@ -44,7 +44,7 @@ namespace NsccCourseMap_Neo.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("DiplomaProgramYearSectionId")
                         .HasColumnType("int");
@@ -67,17 +67,17 @@ namespace NsccCourseMap_Neo.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CourseCode")
                         .IsRequired()
-                        .HasMaxLength(9)
-                        .HasColumnType("nvarchar(9)");
+                        .HasColumnType("nvarchar(9)")
+                        .HasMaxLength(9);
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
 
@@ -92,7 +92,7 @@ namespace NsccCourseMap_Neo.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
@@ -128,7 +128,7 @@ namespace NsccCourseMap_Neo.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
@@ -151,7 +151,7 @@ namespace NsccCourseMap_Neo.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -170,15 +170,15 @@ namespace NsccCourseMap_Neo.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("DiplomaProgramId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
 
@@ -195,7 +195,7 @@ namespace NsccCourseMap_Neo.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AcademicYearId")
                         .HasColumnType("int");
@@ -224,7 +224,7 @@ namespace NsccCourseMap_Neo.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -244,7 +244,7 @@ namespace NsccCourseMap_Neo.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AcademicYearId")
                         .HasColumnType("int");
@@ -254,8 +254,8 @@ namespace NsccCourseMap_Neo.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("Date");
@@ -283,10 +283,6 @@ namespace NsccCourseMap_Neo.Migrations
                         .HasForeignKey("InstructorId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-
-                    b.Navigation("DiplomaProgramYearSection");
-
-                    b.Navigation("Instructor");
                 });
 
             modelBuilder.Entity("NsccCourseMap.Models.CourseOffering", b =>
@@ -314,14 +310,6 @@ namespace NsccCourseMap_Neo.Migrations
                         .HasForeignKey("SemesterId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-
-                    b.Navigation("Course");
-
-                    b.Navigation("DiplomaProgramYearSection");
-
-                    b.Navigation("Instructor");
-
-                    b.Navigation("Semester");
                 });
 
             modelBuilder.Entity("NsccCourseMap.Models.CoursePrerequisite", b =>
@@ -337,10 +325,6 @@ namespace NsccCourseMap_Neo.Migrations
                         .HasForeignKey("PrerequisiteId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-
-                    b.Navigation("Course");
-
-                    b.Navigation("Prerequisite");
                 });
 
             modelBuilder.Entity("NsccCourseMap.Models.DiplomaProgramYear", b =>
@@ -350,8 +334,6 @@ namespace NsccCourseMap_Neo.Migrations
                         .HasForeignKey("DiplomaProgramId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-
-                    b.Navigation("DiplomaProgram");
                 });
 
             modelBuilder.Entity("NsccCourseMap.Models.DiplomaProgramYearSection", b =>
@@ -367,10 +349,6 @@ namespace NsccCourseMap_Neo.Migrations
                         .HasForeignKey("DiplomaProgramYearId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-
-                    b.Navigation("AcademicYear");
-
-                    b.Navigation("DiplomaProgramYear");
                 });
 
             modelBuilder.Entity("NsccCourseMap.Models.Semester", b =>
@@ -380,53 +358,6 @@ namespace NsccCourseMap_Neo.Migrations
                         .HasForeignKey("AcademicYearId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-
-                    b.Navigation("AcademicYear");
-                });
-
-            modelBuilder.Entity("NsccCourseMap.Models.AcademicYear", b =>
-                {
-                    b.Navigation("DiplomaProgramYearSections");
-
-                    b.Navigation("Semesters");
-                });
-
-            modelBuilder.Entity("NsccCourseMap.Models.Course", b =>
-                {
-                    b.Navigation("CourseOfferings");
-
-                    b.Navigation("IsPrerequisiteFor");
-
-                    b.Navigation("Prerequisites");
-                });
-
-            modelBuilder.Entity("NsccCourseMap.Models.DiplomaProgram", b =>
-                {
-                    b.Navigation("DiplomaProgramYears");
-                });
-
-            modelBuilder.Entity("NsccCourseMap.Models.DiplomaProgramYear", b =>
-                {
-                    b.Navigation("DiplomaProgramYearSections");
-                });
-
-            modelBuilder.Entity("NsccCourseMap.Models.DiplomaProgramYearSection", b =>
-                {
-                    b.Navigation("AdvisingAssignments");
-
-                    b.Navigation("CourseOfferings");
-                });
-
-            modelBuilder.Entity("NsccCourseMap.Models.Instructor", b =>
-                {
-                    b.Navigation("AdvisingAssignments");
-
-                    b.Navigation("CourseOfferings");
-                });
-
-            modelBuilder.Entity("NsccCourseMap.Models.Semester", b =>
-                {
-                    b.Navigation("CourseOfferings");
                 });
 #pragma warning restore 612, 618
         }
