@@ -94,7 +94,7 @@ namespace NsccCourseMap_Neo
        options.Conventions.AllowAnonymousToPage("/Index");
      });
 
-      //For DB connect
+      //For DB connection
       services.AddDbContext<NsccCourseMapContext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("NsccCourseMap_Neo")));
     }
