@@ -96,7 +96,34 @@ namespace NsccCourseMap_Neo
 
       //For DB connection
       services.AddDbContext<NsccCourseMapContext>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("NsccCourseMap_Neo")));
+      {
+        var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+        string connStr;
+
+        if (env == "Development")
+        {
+          connStr = Configuration.GetConnectionString("NsccCourseMap_Neo_Mysql");
+        }
+        else
+        {
+          // Use connection string provided at runtime by Heroku.
+          var connUrl = Environment.GetEnvironmentVariable("JAWSDB_URL");
+
+          connUrl = connUrl.Replace("mysql://", string.Empty);
+          connUrl = connUrl.Replace(":3306", string.Empty);
+          var userPassSide = connUrl.Split("@")[0];
+          var hostSide = connUrl.Split("@")[1];
+
+          var connUser = userPassSide.Split(":")[0];
+          var connPass = userPassSide.Split(":")[1];
+          var connHost = hostSide.Split("/")[0];
+          var connDb = hostSide.Split("/")[1];
+
+          connStr = $"server={connHost};Uid={connUser};Pwd={connPass};Database={connDb}";
+        }
+
+        options.UseMySql(connStr, ServerVersion.AutoDetect(connStr));
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -113,6 +140,7 @@ namespace NsccCourseMap_Neo
         // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
         app.UseHsts();
       }
+      // nsccCourseMapContext.Database.EnsureCreated(); //table generate by code
       app.UseHttpsRedirection();
       app.UseStaticFiles();
 

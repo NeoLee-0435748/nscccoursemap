@@ -1,0 +1,54 @@
+Heroku deployment
+1. reference
+ https://faun.pub/deploy-dotnet-core-api-docker-container-with-mysql-on-heroku-ed387eab4222
+ https://devcenter.heroku.com/articles/cleardb -> apply it for services.AddDbContext
+
+2. mysql on docker container
+with docker-compose.yaml
+
+3. working with local
+build at local:
+dotnet build
+dotnet run
+migrations to mysql in docker container:
+- Generate migration
+dotnet ef migrations add InitialCreateWithMysql --context NsccCourseMapContext --output-dir Migrations
+dotnet ef migrations add InitialCreateWithMysql --context NsccCourseMap_NeoIdentityDbContext --output-dir Migrations/NsccCourseMap_NeoIdentityDb
+- Update Database (Create tables)
+dotnet ef database update --context NsccCourseMapContext
+dotnet ef database update --context NsccCourseMap_NeoIdentityDbContext
+export from docker container & import data to jawsdb: (open shell)
+mysqldump -u root -p NsccCourseMap-Neo > backup.sql
+mysql --host=en1ehf30yom7txe7.cbetxkdyhwsb.us-east-1.rds.amazonaws.com -u mfmusivhgjyghupn -p --reconnect y4q5dxqyrmkhuoiy < backup.sql
+URL for jawsdb:
+mysql://mfmusivhgjyghupn:azi24lytylknt8pe@en1ehf30yom7txe7.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/y4q5dxqyrmkhuoiy
+
+4. dockerizing
+make a Dockerfile:
+ -> Dockerfile
+release at local:
+dotnet publish -c release -o app/ .
+docker build with Dockerfile:
+docker build --pull -t nscccoursemap_neo .
+test with docker container: (Mysql need to be in local not in docker container)
+docker run -p 8181:80 nscccoursemap_neo
+
+5. Deploy to Heroku
+login container:
+heroku login
+heroku container:login
+tag image for heroku container:
+docker tag nscccoursemap_neo registry.heroku.com/nscc-course-map-with-csharp/web
+push and release docker container to heroku:
+heroku container:push web -a nscc-course-map-with-csharp
+heroku container:release web -a nscc-course-map-with-csharp
+
+6. Test in heroku deployment site
+Register user:
+Email: test@test.com
+Password: Test!@1234
+
+Login:
+check for courses:
+https://nscc-course-map-with-csharp.herokuapp.com/courses
+erc...
