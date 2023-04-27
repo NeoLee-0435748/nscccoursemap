@@ -18,5 +18,7 @@ export PATH=$PATH:$XDG_CACHE_HOME/dotnet;
 # run commands to build static site
 dotnet publish -c release -o app/ .
 
+pwd
+
 ASPNETCORE_URLS=http://*:$PORT
-dotnet NsccCourseMap_Neo.dll
+dotnet app/NsccCourseMap_Neo.dll
