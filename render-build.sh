@@ -21,4 +21,4 @@ dotnet publish -c release -o app/ .
 pwd
 
 ASPNETCORE_URLS=http://*:$PORT
-dotnet app/NsccCourseMap_Neo.dll
+#dotnet app/NsccCourseMap_Neo.dll
